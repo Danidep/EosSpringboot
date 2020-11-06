@@ -1,1 +1,0 @@
-INSERT INTO USER(mail, password, name) VALUES()
