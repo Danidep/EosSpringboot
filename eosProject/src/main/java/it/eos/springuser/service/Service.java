@@ -9,9 +9,11 @@ public interface Service {
 	
 	UserModel save(UserModel user);
 	
-	List<UserEntity> getUser();
+	UserModel getUserById(Long id);
+	
+	List<UserEntity> getAllUser();
 	
 	UserModel putUser(UserModel user);
 	
-	String deleteUser(String Mail);
+	String deleteUser(Long id);
 }
