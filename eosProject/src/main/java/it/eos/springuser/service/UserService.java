@@ -16,32 +16,33 @@ import net.bytebuddy.implementation.bytecode.Throw;
 
 @Service
 public class UserService implements it.eos.springuser.service.Service {
-	
+
 	@Autowired
-	private UserRepository userService;
+	private UserRepository userRepository;
 
 	@Override
 	public UserModel save(UserModel user) {
-		userService.save(UserConverter.toEntity(user));
-		return user;
+		UserEntity saveUser = UserConverter.toEntity(user)
+		userRepository.save(saveUser);
+		return UserConverter.toModel(saveUser);
 	}
 
 	@Override
 	public List<UserEntity> getAllUser() {
-		return this.userService.findAll();
+		return this.userRepository.findAll();
 	}
 
 	@Override
 	public UserModel putUser(UserModel user) {
-		Optional<UserEntity> userDB= this.userService.findById(user.getId());
-		
+		Optional<UserEntity> userDB= this.userRepository.findById(user.getId());
+
 		if (userDB.isPresent()) {
 			UserEntity putUser=userDB.get();
 			putUser.setMail(user.getMail());
 			putUser.setPassword(user.getPassword());
 			putUser.setName(user.getName());
-			userService.save(putUser);
-			return user;
+			userRepository.save(putUser);
+			return UserConverter.toModel(putUser);
 		}else {
 			throw new ResourceNotFoundException("User not found");
 		}
@@ -49,20 +50,20 @@ public class UserService implements it.eos.springuser.service.Service {
 
 	@Override
 	public String deleteUser(Long id) {
-		Optional<UserEntity> userDB = this.userService.findById(id);
-		
+		Optional<UserEntity> userDB = this.userRepository.findById(id);
+
 		if(userDB.isPresent()) {
-			this.userService.delete(userDB.get());
+			this.userRepository.delete(userDB.get());
 			return "Deleted";
 		}else {
 			return "Error";
-		}	
+		}
 	}
 
 	@Override
 	public UserModel getUserById(Long id) {
-	Optional<UserEntity> userDB = this.userService.findById(id);
-		
+		Optional<UserEntity> userDB = this.userRepository.findById(id);
+
 		if(userDB.isPresent()) {
 			return UserConverter.toModel(userDB.get());
 		}else {
