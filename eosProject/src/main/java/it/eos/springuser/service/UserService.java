@@ -22,7 +22,7 @@ public class UserService implements it.eos.springuser.service.Service {
 
 	@Override
 	public UserModel save(UserModel user) {
-		UserEntity saveUser = UserConverter.toEntity(user)
+		UserEntity saveUser = UserConverter.toEntity(user);
 		userRepository.save(saveUser);
 		return UserConverter.toModel(saveUser);
 	}

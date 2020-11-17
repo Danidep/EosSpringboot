@@ -1,8 +1,15 @@
 package it.eos.springuser.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 @Entity
 @Table(name = "ANIMAL")
-public class AnimalModel {
+public class AnimalEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,18 +29,18 @@ public class AnimalModel {
 
     public boolean equals(Object object) {
         if (this == object) return true;
-        if (!(object instanceof AnimalModel)) return false;
+        if (!(object instanceof AnimalEntity)) return false;
         if (!super.equals(object)) return false;
-        AnimalModel that = (AnimalModel) object;
-        return id == that.id &&
-                type.equals(that.type) &&
-                family.equals(that.family) &&
-                genus.equals(that.genus) &&
-                species.equals(that.species);
+        AnimalEntity that = (AnimalEntity) object;
+        return id == that.getId() &&
+                type.equals(that.getType()) &&
+                family.equals(that.getFamily()) &&
+                genus.equals(that.getGenus()) &&
+                species.equals(that.getSpecies());
     }
 
     public int hashCode() {
-        return Objects.hash(super.hashCode(), id, type, family, genus, species);
+        return super.hashCode();
     }
 
     @java.lang.Override

@@ -25,7 +25,7 @@ public class AnimalModel {
     }
 
     public int hashCode() {
-        return Objects.hash(super.hashCode(), id, type, family, genus, species);
+        return super.hashCode();
     }
 
     @java.lang.Override
