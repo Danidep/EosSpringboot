@@ -72,7 +72,7 @@ public class AnimalModel {
     }
 
     public String getSpecies() {
-        return species;
+        return this.species;
     }
 
     public void setSpecies(String species) {

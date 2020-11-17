@@ -11,7 +11,6 @@ import it.eos.springuser.exeption.ResourceNotFoundException;
 import it.eos.springuser.model.UserEntity;
 import it.eos.springuser.model.UserModel;
 import it.eos.springuser.repository.UserRepository;
-import net.bytebuddy.implementation.bytecode.Throw;
 
 
 @Service
