@@ -2,7 +2,9 @@ package it.eos.springuser.business;
 
 import it.eos.springuser.model.UserEntity;
 import it.eos.springuser.model.UserModel;
+import org.springframework.stereotype.Component;
 
+@Component
 public class UserConverter {
 	
 	public static UserModel toModel(UserEntity user) {

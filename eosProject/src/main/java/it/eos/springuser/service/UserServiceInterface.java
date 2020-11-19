@@ -5,7 +5,7 @@ import java.util.List;
 import it.eos.springuser.model.UserEntity;
 import it.eos.springuser.model.UserModel;
 
-public interface Service {
+public interface UserServiceInterface {
 	
 	UserModel save(UserModel user);
 	

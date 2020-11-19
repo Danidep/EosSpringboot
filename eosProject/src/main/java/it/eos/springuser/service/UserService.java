@@ -14,7 +14,7 @@ import it.eos.springuser.repository.UserRepository;
 
 
 @Service
-public class UserService implements it.eos.springuser.service.Service {
+public class UserService implements UserServiceInterface {
 
 	@Autowired
 	private UserRepository userRepository;

@@ -4,6 +4,9 @@ import it.eos.springuser.model.AnimalEntity;
 import it.eos.springuser.model.AnimalModel;
 
 public class AnimalConverter {
+
+    private AnimalConverter() {
+    }
     public static AnimalModel toModel(AnimalEntity animal) {
         AnimalModel animalModel = new AnimalModel();
         animalModel.setId(animal.getId());
